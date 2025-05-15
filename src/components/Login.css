@@ -1,0 +1,81 @@
+.login-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: url('src/assets/background1.png') no-repeat center center/cover; /* Укажите путь к вашему изображению */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+
+
+.login-overlay {
+  display: flex;
+  align-items: flex-end; /* Было center */
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  padding-bottom: 48px; /* Добавим отступ снизу */
+}
+
+.login-form {
+  background-color: rgba(170, 106, 21, 0.202); /* фон */
+  padding: 1.5rem; /* Внутренний отступ */
+  border-radius: 0.375rem; /* Скругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+  width: 20rem; /* Ширина */
+  margin-bottom: 5rem; /* Отступ снизу */
+}
+
+.login-title {
+  font-size: 1.5rem; /* Размер текста */
+  font-weight: 700; /* Жирный текст */
+  margin-bottom: 1rem; /* Отступ снизу */
+  text-align: center; /* Выравнивание по центру */
+  color: #333; /* Цвет текста */
+}
+
+.login-error {
+  color: #ef4444; /* Красный цвет */
+  font-size: 0.875rem; /* Размер текста */
+  margin-bottom: 1rem; /* Отступ снизу */
+  text-align: center; /* Выравнивание по центру */
+}
+
+.login-field {
+  margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.login-label {
+  display: block;
+  font-size: 0.875rem; /* Размер текста */
+  font-weight: 500; /* Полужирный текст */
+  margin-bottom: 0.25rem; /* Отступ снизу */
+  color: #fff; /* Белый цвет текста */
+}
+
+.login-input {
+  width: 80%; /* Полная ширина */
+  padding: 0.5rem 0.75rem; /* Внутренний отступ */
+  border: 1px solid #d1d5db; /* Граница */
+  border-radius: 0.375rem; /* Скругленные углы */
+}
+
+.login-button {
+  width: 100%; /* Полная ширина */
+  background-color: #3b82f6; /* Синий фон */
+  color: #ffffff; /* Белый текст */
+  padding: 0.5rem 0; /* Внутренний отступ */
+  border-radius: 0.375rem; /* Скругленные углы */
+  transition: background-color 0.2s;
+  margin-top: 1rem; /* Отступ сверху */
+}
+
+.login-button:hover {
+  background-color: #2563eb; /* Более темный синий при наведении */
+}
