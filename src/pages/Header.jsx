@@ -25,7 +25,7 @@ export default function Header({ onMenuClick }) {
       <h1 className="text-4xl font-light text-center flex-1">Cargo Paper</h1>
       <button
         onClick={handleExit}
-        className="bg-gray-200 px-6 py-2 ml-4 rounded-sm text-lg hover:bg-gray-300 transition"
+        className="bg-gray-200 px-6 py-2 ml-4 rounded-sm text-lg hover:bg-red-600 transition"
       >
         Exit
       </button>
