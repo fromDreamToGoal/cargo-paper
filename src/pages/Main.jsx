@@ -29,17 +29,29 @@ export default function Main() {
       <Header onMenuClick={() => setMenuOpen(true)} />
       <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
       <main className="flex flex-col items-center w-full max-w-7xl px-4 py-8">
-        <button className="bg-lime-800/70 w-80 h-24 rounded mb-12 text-xl font-medium hover:bg-gray-300 transition" onClick={() => handleNav('/create')}>
+        <button
+          className="w-80 h-24 mb-12 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-xl shadow-md text-gray-800 text-xl font-semibold hover:bg-white hover:shadow-lg transition duration-300"
+          onClick={() => handleNav('/create')}
+        >
           Создать документ
         </button>
         <div className="flex gap-12">
-          <button className="bg-lime-800/70 w-40 h-40 rounded text-lg font-normal hover:bg-gray-300 transition" onClick={() => handleNav('/drivers')}>
+          <button
+            className="w-40 h-40 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow text-gray-700 text-lg font-normal hover:bg-white hover:shadow-md transition duration-300"
+            onClick={() => handleNav('/drivers')}
+          >
             водители
           </button>
-          <button className="bg-lime-800/70 w-40 h-40 rounded text-lg font-normal hover:bg-gray-300 transition" onClick={() => handleNav('/companies')}>
+          <button
+            className="w-40 h-40 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow text-gray-700 text-lg font-normal hover:bg-white hover:shadow-md transition duration-300"
+            onClick={() => handleNav('/companies')}
+          >
             фирмы
           </button>
-          <button className="bg-lime-800/70 w-40 h-40 rounded text-lg font-normal hover:bg-gray-300 transition" onClick={() => handleNav('/templates')}>
+          <button
+            className="w-40 h-40 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow text-gray-700 text-lg font-normal hover:bg-white hover:shadow-md transition duration-300"
+            onClick={() => handleNav('/templates')}
+          >
             шаблоны
           </button>
         </div>
