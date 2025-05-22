@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Header from './Header'
+import Navigation from './Navigation'
 
 export default function Drivers() {
   const navigate = useNavigate()
   const drivers = useSelector(state => state.drivers.drivers)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleAdd = () => {
     navigate('/add-driver')
@@ -12,15 +15,8 @@ export default function Drivers() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] p-6">
-      <header className="flex justify-between items-center mb-10">
-        <h1 className="text-2xl font-bold">CargoPaper</h1>
-        <button
-          className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-          onClick={() => navigate('/main')}
-        >
-          Exit
-        </button>
-      </header>
+      <Header onMenuClick={() => setMenuOpen(true)} />
+        <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <main className="max-w-3xl mx-auto">
         <h2 className="text-xl font-semibold mb-6">Водители</h2>
