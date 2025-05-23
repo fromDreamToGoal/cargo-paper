@@ -3,10 +3,13 @@ import { useDispatch } from 'react-redux'
 import { addDriver } from '../store/driversSlice'
 import { useNavigate } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
+import Header from './Header'
+import Navigation from './Navigation'
 
 export default function AddDriver() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = React.useState(false)
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -39,12 +42,12 @@ export default function AddDriver() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] p-8">
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">CargoPaper</h1>
-        <h2 className="text-xl font-medium">Добавить водителя</h2>
-      </header>
-
+    <div className="min-h-screen bg-[#F5F5F5]">
+      <Header onMenuClick={() => setMenuOpen(true)} />
+      <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <h2 className="text-center text-2xl font-semibold my-8">
+        Добавить водителя
+      </h2>
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -82,12 +85,14 @@ export default function AddDriver() {
           </div>
         ))}
 
-        <button
-          type="submit"
-          className="mt-6 px-6 py-3 bg-gray-300 rounded hover:bg-gray-400 transition"
-        >
-          Добавить +
-        </button>
+        <div className="flex justify-center mt-8">
+          <button
+            type="submit"
+            className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+          >
+            Добавить водителя
+          </button>
+        </div>
       </form>
     </div>
   )
