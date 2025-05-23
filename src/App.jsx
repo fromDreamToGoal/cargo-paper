@@ -4,6 +4,7 @@ import Main from './pages/Main'
 import AddDriver from './pages/AddDriver'
 import Drivers from './pages/Drivers'
 import ViewDriver from './pages/ViewDriver'
+import EditDriver from './pages/EditDriver'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/add-driver" element={<AddDriver />} />
         <Route path="/drivers" element={<Drivers />} />
           <Route path="/view-driver/:id" element={<ViewDriver />} />
+          <Route path="/edit-driver/:id" element={<EditDriver />} />
         {/* другие маршруты */}
       </Routes>
     </Router>

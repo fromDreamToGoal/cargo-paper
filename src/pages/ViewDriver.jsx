@@ -25,7 +25,7 @@ export default function ViewDriver() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] p-6">
+    <div className="min-h-screen bg-[#F5F5F5]">
       <Header onMenuClick={() => setMenuOpen(true)} />
       <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
 
@@ -33,7 +33,8 @@ export default function ViewDriver() {
         Персональные данные водителя
       </h2>
 
-      <div className="max-w-5xl mx-auto bg-white shadow p-6">
+      <div className='flex justify-center'>
+        <div className="max-w-5xl min-w-3xl bg-white shadow p-6">
         <table className="w-full border border-black text-left text-sm">
           <tbody>
             {[
@@ -61,6 +62,7 @@ export default function ViewDriver() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
 
       <div className="flex justify-center gap-4 mt-8">

@@ -14,12 +14,12 @@ export default function Drivers() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] p-6">
+    <div className="min-h-screen bg-[#F5F5F5]">
       <Header onMenuClick={() => setMenuOpen(true)} />
         <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      <main className="max-w-3xl mx-auto">
-        <h2 className="text-xl font-semibold mb-6">Водители</h2>
+      <main className="max-w-3xl mx-auto mt-5">
+        <h2 className="text-center text-2xl font-semibold my-8">Водители</h2>
 
         <ul className="space-y-4 mb-10">
           {drivers.map(driver => (
