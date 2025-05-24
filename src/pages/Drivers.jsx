@@ -21,7 +21,7 @@ export default function Drivers() {
       <main className="max-w-3xl mx-auto mt-5">
         <h2 className="text-center text-2xl font-semibold my-8">Водители</h2>
 
-        <ul className="space-y-4 mb-10">
+        <ul className="space-y-4 mb-10 p-5">
           {drivers.map(driver => (
             <li
               key={driver.id}
