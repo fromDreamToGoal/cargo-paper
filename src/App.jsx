@@ -5,6 +5,8 @@ import AddDriver from './pages/AddDriver'
 import Drivers from './pages/Drivers'
 import ViewDriver from './pages/ViewDriver'
 import EditDriver from './pages/EditDriver'
+import Companies from './pages/Companies'
+import AddCompany from './pages/AddCompany'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/drivers" element={<Drivers />} />
           <Route path="/view-driver/:id" element={<ViewDriver />} />
           <Route path="/edit-driver/:id" element={<EditDriver />} />
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/add-company" element={<AddCompany />} />
         {/* другие маршруты */}
       </Routes>
     </Router>
