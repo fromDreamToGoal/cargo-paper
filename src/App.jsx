@@ -9,6 +9,7 @@ import Companies from './pages/Companies'
 import AddCompany from './pages/AddCompany'
 import ViewCompany from './pages/ViewCompany'
 import EditCompany from './pages/EditCompany'
+import Templates from './pages/Templates'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/add-company" element={<AddCompany />} />
         <Route path="/view-company/:id" element={<ViewCompany />} />
         <Route path="/edit-company/:id" element={<EditCompany />} />
+        <Route path="/templates" element={<Templates />} />
         {/* другие маршруты */}
       </Routes>
     </Router>
