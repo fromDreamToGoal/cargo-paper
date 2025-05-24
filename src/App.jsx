@@ -7,6 +7,9 @@ import ViewDriver from './pages/ViewDriver'
 import EditDriver from './pages/EditDriver'
 import Companies from './pages/Companies'
 import AddCompany from './pages/AddCompany'
+import ViewCompany from './pages/ViewCompany'
+import EditCompany from './pages/EditCompany'
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
           <Route path="/edit-driver/:id" element={<EditDriver />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/add-company" element={<AddCompany />} />
+        <Route path="/view-company/:id" element={<ViewCompany />} />
+        <Route path="/edit-company/:id" element={<EditCompany />} />
         {/* другие маршруты */}
       </Routes>
     </Router>
