@@ -10,6 +10,7 @@ import AddCompany from './pages/AddCompany'
 import ViewCompany from './pages/ViewCompany'
 import EditCompany from './pages/EditCompany'
 import Templates from './pages/Templates'
+import CreateDocument from './pages/CreateDocument'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/view-company/:id" element={<ViewCompany />} />
         <Route path="/edit-company/:id" element={<EditCompany />} />
         <Route path="/templates" element={<Templates />} />
+        <Route path="/create-document" element={<CreateDocument />} />
         {/* другие маршруты */}
       </Routes>
     </Router>

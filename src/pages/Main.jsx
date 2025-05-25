@@ -31,7 +31,7 @@ export default function Main() {
       <main className="flex flex-col items-center w-full max-w-7xl px-4 py-8">
         <button
           className="w-80 h-24 mb-12 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-xl shadow-md text-gray-800 text-xl font-semibold hover:bg-white hover:shadow-lg transition duration-300"
-          onClick={() => handleNav('/create')}
+          onClick={() => handleNav('/create-document')}
         >
           Создать документ
         </button>

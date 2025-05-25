@@ -31,7 +31,7 @@ export default function Navigation({ open, onClose }) {
         onClick={e => e.stopPropagation()}
       >
         <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/main')}>Главная</button>
-        <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/create')}>Создать документ</button>
+        <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/create-document')}>Создать документ</button>
         <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/drivers')}>Водители</button>
         <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/companies')}>Фирмы</button>
         <button className="text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition" onClick={() => handleNav('/templates')}>Шаблоны</button>
