@@ -11,6 +11,7 @@ import ViewCompany from './pages/ViewCompany'
 import EditCompany from './pages/EditCompany'
 import Templates from './pages/Templates'
 import CreateDocument from './pages/CreateDocument'
+import CreateTransportOrder from './pages/CreateTransportOrder'
 
 
 function App() {
@@ -21,14 +22,15 @@ function App() {
         <Route path="/main" element={<Main />} />
         <Route path="/add-driver" element={<AddDriver />} />
         <Route path="/drivers" element={<Drivers />} />
-          <Route path="/view-driver/:id" element={<ViewDriver />} />
-          <Route path="/edit-driver/:id" element={<EditDriver />} />
+        <Route path="/view-driver/:id" element={<ViewDriver />} />
+        <Route path="/edit-driver/:id" element={<EditDriver />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/add-company" element={<AddCompany />} />
         <Route path="/view-company/:id" element={<ViewCompany />} />
         <Route path="/edit-company/:id" element={<EditCompany />} />
         <Route path="/templates" element={<Templates />} />
         <Route path="/create-document" element={<CreateDocument />} />
+        <Route path="/create-transport-order" element={<CreateTransportOrder />} />
         {/* другие маршруты */}
       </Routes>
     </Router>

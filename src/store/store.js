@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './authSlice'
 import driversReducer from './driversSlice'
-import companiesReducer from './companiesSlice' // <-- создадим позже
+import companiesReducer from './companiesSlice'
+import addressesReducer from './addressesSlice'
 
 import { combineReducers } from 'redux'
 import {
@@ -19,7 +20,8 @@ import storage from 'redux-persist/lib/storage'
 const rootReducer = combineReducers({
   auth: authReducer,
   drivers: driversReducer,
-  companies: companiesReducer
+  companies: companiesReducer,
+  addresses: addressesReducer
 })
 
 const persistConfig = {
