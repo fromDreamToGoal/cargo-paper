@@ -8,9 +8,9 @@ export default function Templates() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const templates = [
-    { name: 'Договор-заявка на заказ транспортного средства', version: '30.04.2024' },
-    { name: 'Акт сдачи-приемки', version: '25.04.2025' },
-    { name: 'Счет на оплату', version: '13.12.1996' },
+    { name: 'Договор-заявка на заказ транспортного средства', version: '' },
+    { name: 'Акт сдачи-приемки', version: '' },
+    { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка', version: '' },
     { name: 'Карта клиента', version: '' }
   ]
@@ -35,12 +35,12 @@ export default function Templates() {
             {templates.map((tpl, index) => (
               <tr key={index} className="border border-black">
                 <td className="border px-4 py-2">{tpl.name}</td>
-                <td className="border px-4 py-2">{tpl.version}</td>
+                <td className="border px-4 py-2 text-center">{tpl.version}</td>
                 <td className="border px-4 py-2 text-center">
                   <button
                     title="Просмотр"
                     className="text-xl hover:text-black text-gray-600"
-                    onClick={() => navigate(`/template-template/${index}`)}
+                    onClick={() => navigate(`${tpl.path || '/main'}`)}
                   >
                     👁
                   </button>
