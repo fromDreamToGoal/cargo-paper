@@ -10,11 +10,12 @@ Font.register({
 const styles = StyleSheet.create({
   page: { padding: 30, fontSize: 10, fontFamily: 'Roboto', },
   header: { textAlign: 'center', fontSize: 12, marginBottom: 10, fontWeight: 'bold' },
-  section: { marginBottom: 6 },
+  section: { marginBottom: 20 },
   row: { flexDirection: 'row', justifyContent: 'space-between' },
   box: { borderWidth: 1, borderColor: '#000', padding: 6, marginBottom: 6 },
   table: { borderWidth: 1, borderColor: '#000' },
   tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000' },
+  tableRowHeader: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center', fontWeight: 'bold' },
   tableCol: { flex: 1, borderRightWidth: 1, borderColor: '#000', padding: 4 },
   tableColLast: { flex: 1, padding: 5 },
   footer: { marginTop: 12 },
@@ -36,17 +37,12 @@ const InvoiceTemplatePDF = () => (
         <Text>Банк получателя: _________________________________________</Text>
         <Text>БИК: ____________</Text>
         <Text>Сч. №: _______________________</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text>Покупатель: _____________________________________________</Text>
         <Text>Юр. адрес: ______________________________________________</Text>
         <Text>ИНН ____________ ОКПО ____________ ОГРНИП _______________</Text>
       </View>
 
       <View style={styles.table}>
-        <View style={styles.tableRow}>
-          <Text style={styles.tableCol}>№</Text>
+        <View style={styles.tableRowHeader}>
           <Text style={styles.tableCol}>Наименование товара</Text>
           <Text style={styles.tableCol}>Ед. изм</Text>
           <Text style={styles.tableCol}>Кол-во</Text>
@@ -54,7 +50,6 @@ const InvoiceTemplatePDF = () => (
         </View>
         {[1].map((_, i) => (
           <View key={i} style={styles.tableRow}>
-            <Text style={styles.tableCol}> </Text>
             <Text style={styles.tableCol}> </Text>
             <Text style={styles.tableCol}> </Text>
             <Text style={styles.tableCol}> </Text>
