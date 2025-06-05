@@ -40,7 +40,40 @@ export default function Templates() {
                   <button
                     title="Просмотр"
                     className="text-xl hover:text-black text-gray-600"
-                    onClick={() => navigate(`${tpl.path || '/main'}`)}
+                    onClick={() =>
+                      tpl.path === '/invoice-preview'
+                        ? navigate(tpl.path, {
+                            state: {
+                              data: {
+                                invoiceNumber: '123',
+                                invoiceDate: '2025-06-05',
+                                service: 'Транспортные услуги',
+                                unit: 'тонна',
+                                quantity: 12,
+                                price: 5000,
+                                contractor: {
+                                  fullName: 'Иванов Иван Иванович',
+                                  inn: '1234567890',
+                                  bankAccount: '40702810900000000001',
+                                  bik: '044525225',
+                                  correspondentAccount: '30101810400000000225',
+                                  bankName: 'АО Банк',
+                                },
+                                client: {
+                                  name: 'ООО Ромашка',
+                                  inn: '7701234567',
+                                  bankName: 'АО КлиентБанк',
+                                  bik: '044525987',
+                                  bankAccount: '40702810200000000002',
+                                  address: 'г. Москва, ул. Примерная, д. 1',
+                                  okpo: '12345678',
+                                  ogrnip: '312345678900012',
+                                },
+                              },
+                            },
+                          })
+                        : navigate(`${tpl.path || '/main'}`)
+                    }
                   >
                     👁
                   </button>

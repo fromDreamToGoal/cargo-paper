@@ -21,24 +21,24 @@ const styles = StyleSheet.create({
   footer: { marginTop: 12 },
 });
 
-const InvoiceTemplatePDF = () => (
+const InvoiceTemplatePDF = ({data}) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Text style={styles.header}>Счёт на оплату № ___ от ___</Text>
+      <Text style={styles.header}>Счёт на оплату № {data.invoiceNumber} от {data.invoiceDate}</Text>
 
       <View style={styles.section}>
-        <Text>Исполнитель: _____________________________________________</Text>
-        <Text>ИНН ____________ Р/С № ____________________ БИК __________</Text>
-        <Text>К/С _______________________ Банк ____________________________</Text>
+        <Text>Исполнитель: {data.contractor?.fullName}</Text>
+        <Text>ИНН {data.contractor?.inn || '-'}     Р/С № {data.contractor?.ras || '-'}    БИК {data.contractor?.bik || '-'}</Text>
+        <Text>К/С {data.contractor?.kor || '-'}     Банк {data.contractor?.bankName || '-'}</Text>
       </View>
 
       <View style={styles.section}>
-        <Text>Получатель: _____________________________________________</Text>
-        <Text>Банк получателя: _________________________________________</Text>
-        <Text>БИК: ____________</Text>
-        <Text>Сч. №: _______________________</Text>
-        <Text>Юр. адрес: ______________________________________________</Text>
-        <Text>ИНН ____________ ОКПО ____________ ОГРНИП _______________</Text>
+        <Text>Получатель: {data.client?.name || '-'}</Text>
+        <Text>Банк получателя: {data.client?.bankName || '-'}</Text>
+        <Text>БИК: {data.client?.bik || '-'}</Text>
+        <Text>Сч. №: {data.client?.rs || '-'}</Text>
+        <Text>Юр. адрес: {data.client?.address || '-'}</Text>
+        <Text>ИНН {data.client?.inn}   ОКПО {data.client?.okpo}    ОГРНИП {data.client?.ogrn}</Text>
       </View>
 
       <View style={styles.table}>
@@ -50,14 +50,14 @@ const InvoiceTemplatePDF = () => (
         </View>
         {[1].map((_, i) => (
           <View key={i} style={styles.tableRow}>
-            <Text style={styles.tableCol}> </Text>
-            <Text style={styles.tableCol}> </Text>
-            <Text style={styles.tableCol}> </Text>
-            <Text style={styles.tableColLast}> </Text>
+            <Text style={styles.tableCol}> {data.service} </Text>
+            <Text style={styles.tableCol}> {data.unit}</Text>
+            <Text style={styles.tableCol}> {data.quantity}</Text>
+            <Text style={styles.tableColLast}> {data.price}</Text>
           </View>
         ))}
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCol, { flex: 4 }]}>Итого:</Text>
+          <Text style={[styles.tableCol, { flex: 3 }]}>Итого:</Text>
           <Text style={styles.tableColLast}> </Text>
         </View>
       </View>

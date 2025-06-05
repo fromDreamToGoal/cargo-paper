@@ -2,20 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Navigation from './Navigation';
+import { useSelector } from 'react-redux';
 
 const CreateInvoiceForPayment = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Пример данных из состояния приложения
-  const drivers = [
-    { id: '1', name: 'Иванов Иван Иванович' },
-    { id: '2', name: 'Петров Петр Петрович' },
-  ];
-  const clients = [
-    { id: '1', name: 'ООО Ромашка' },
-    { id: '2', name: 'ЗАО ТехТранс' },
-  ];
+  const drivers = useSelector(state => state.drivers.drivers || []);
+  const clients = useSelector(state => state.companies.companies || []);
 
   const [formData, setFormData] = useState({
     invoiceNumber: '',
@@ -34,7 +27,17 @@ const CreateInvoiceForPayment = () => {
   };
 
   const handleSubmit = () => {
-    navigate('/invoice-preview', { state: { data: formData } });
+    const contractor = drivers.find(driver => driver.id === formData.contractorId);
+    const client = clients.find(company => company.id === formData.clientId);
+
+    const fullData = {
+      ...formData,
+      contractor,
+      client,
+    };
+
+    console.log('Данные, передаваемые в PDF:', fullData);
+    navigate('/invoice-preview', { state: { data: fullData } });
   };
 
   return (
@@ -59,7 +62,7 @@ const CreateInvoiceForPayment = () => {
             <select name="contractorId" value={formData.contractorId} onChange={handleChange} className="w-full border rounded px-3 py-2">
               <option value="">Выберите исполнителя</option>
               {drivers.map(driver => (
-                <option key={driver.id} value={driver.id}>{driver.name}</option>
+                <option key={driver.id} value={driver.id}>{driver.fullName}</option>
               ))}
             </select>
           </div>
