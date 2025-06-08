@@ -45,8 +45,7 @@ const CreateInvoiceForPayment = () => {
       <Header onMenuClick={() => setMenuOpen(true)} />
       <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-2">CargoPaper</h1>
-        <h2 className="text-xl text-center mb-6">Создать счет на оплату</h2>
+        <h1 className="text-3xl font-bold text-center mb-10">Создать счет на оплату</h1>
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded shadow" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
           <div>

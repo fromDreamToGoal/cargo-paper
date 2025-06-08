@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', justifyContent: 'space-between' },
   box: { borderWidth: 1, borderColor: '#000', padding: 6, marginBottom: 6 },
   table: { borderWidth: 1, borderColor: '#000' },
-  tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000' },
+  tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center' },
   tableRowHeader: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center', fontWeight: 'bold' },
   tableCol: { flex: 1, borderRightWidth: 1, borderColor: '#000', padding: 4 },
-  tableColLast: { flex: 1, padding: 5 },
+  tableColLast: { flex: 1, padding: 5, textAlign: 'center' },
   footer: { marginTop: 12 },
 });
 
@@ -45,7 +45,7 @@ const InvoiceTemplatePDF = ({data}) => (
         <View style={styles.tableRowHeader}>
           <Text style={styles.tableCol}>Наименование товара</Text>
           <Text style={styles.tableCol}>Ед. изм</Text>
-          <Text style={styles.tableCol}>Кол-во</Text>
+          <Text style={styles.tableCol}>Количество</Text>
           <Text style={styles.tableColLast}>Сумма, руб.</Text>
         </View>
         {[1].map((_, i) => (
@@ -57,7 +57,7 @@ const InvoiceTemplatePDF = ({data}) => (
           </View>
         ))}
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCol, { flex: 3 }]}>Итого:</Text>
+          <Text style={[styles.tableCol, { flex: 3, textAlign: 'left', paddingLeft: 15 }]}>Итого:</Text>
           <Text style={styles.tableColLast}> </Text>
         </View>
       </View>

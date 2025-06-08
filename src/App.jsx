@@ -14,6 +14,7 @@ import CreateDocument from './pages/CreateDocument'
 import CreateTransportOrder from './pages/CreateTransportOrder'
 import InvoicePreviewPage from './pages/InvoicePreviewPage'
 import CreateInvoiceForPayment from './pages/CreateInvoiceForPayment'
+import DriverCardPreview from './pages/DriverCardPreview'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/create-transport-order" element={<CreateTransportOrder />} />
         <Route path="/invoice-preview" element={<InvoicePreviewPage />} />
         <Route path="/create-invoice" element={<CreateInvoiceForPayment />} />
+        <Route path="/driver-card-preview" element={<DriverCardPreview />} />
         {/* другие маршруты */}
       </Routes>
     </Router>
