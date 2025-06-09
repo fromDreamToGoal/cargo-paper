@@ -12,7 +12,7 @@ export default function Templates() {
     { name: 'Акт сдачи-приемки', version: '' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка', version: '' },
-    { name: 'Карта клиента', version: '' }
+    { name: 'Карта клиента', version: '8.06.2025', path: '/driver-card-preview' },
   ]
 
   return (
@@ -40,40 +40,65 @@ export default function Templates() {
                   <button
                     title="Просмотр"
                     className="text-xl hover:text-black text-gray-600"
-                    onClick={() =>
-                      tpl.path === '/invoice-preview'
-                        ? navigate(tpl.path, {
-                            state: {
-                              data: {
-                                invoiceNumber: '123',
-                                invoiceDate: '2025-06-05',
-                                service: 'Транспортные услуги',
-                                unit: 'тонна',
-                                quantity: 12,
-                                price: 5000,
-                                contractor: {
-                                  fullName: 'Иванов Иван Иванович',
-                                  inn: '1234567890',
-                                  bankAccount: '40702810900000000001',
-                                  bik: '044525225',
-                                  correspondentAccount: '30101810400000000225',
-                                  bankName: 'АО Банк',
-                                },
-                                client: {
-                                  name: 'ООО Ромашка',
-                                  inn: '7701234567',
-                                  bankName: 'АО КлиентБанк',
-                                  bik: '044525987',
-                                  bankAccount: '40702810200000000002',
-                                  address: 'г. Москва, ул. Примерная, д. 1',
-                                  okpo: '12345678',
-                                  ogrnip: '312345678900012',
-                                },
+                    onClick={() => {
+                      if (tpl.path === '/invoice-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              invoiceNumber: '123',
+                              invoiceDate: '2025-06-05',
+                              service: 'Транспортные услуги',
+                              unit: 'тонна',
+                              quantity: 12,
+                              price: 5000,
+                              contractor: {
+                                fullName: 'Иванов Иван Иванович',
+                                inn: '1234567890',
+                                bankAccount: '40702810900000000001',
+                                bik: '044525225',
+                                kor: '30101810400000000225',
+                                ras: '4080281044099000234',
+                                correspondentAccount: '30101810400000000225',
+                                bankName: 'АО Банк',
+
+                              },
+                              client: {
+                                name: 'ООО Ромашка',
+                                inn: '7701234567',
+                                bankName: 'АО КлиентБанк',
+                                bik: '044525987',
+                                bankAccount: '40702810200000000002',
+                                address: 'г. Москва, ул. Примерная, д. 1',
+                                okpo: '12345678',
+                                rs: '4080281044099000234',
+                                ogrnip: '312345678900012',
                               },
                             },
-                          })
-                        : navigate(`${tpl.path || '/main'}`)
-                    }
+                          },
+                        });
+                      } else if (tpl.path === '/driver-card-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            driver: {
+                              fullName: 'Герасименко Виктор Владимирович',
+                              inn: '910600165196',
+                              ogrnip: '314910234711922',
+                              registrationAddress: '296000 г. Красноперекопск ул. Менделеева 27 кв.3',
+                              phone: '+7 978 8088890',
+                              taxSystem: 'УСН',
+                              okved: '49.41 Деятельность Автомобильного грузового транспорта',
+                              email: 'Gerasimenko-s@list.ru',
+                              bik: '043510607',
+                              bankName: 'РНКБ ПАО',
+                              kor: '30101810335100000607',
+                              ras: '4080281044099000235',
+                            },
+                          },
+                        });
+                      } else {
+                        navigate(`${tpl.path || '/main'}`);
+                      }
+                    }}
                   >
                     👁
                   </button>
