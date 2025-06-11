@@ -32,8 +32,8 @@ const InvoiceTemplatePDF = ({data}) => {
 
         <View style={styles.section}>
           <Text>Исполнитель: {data.contractor?.fullName}</Text>
-          <Text>ИНН {data.contractor?.inn || '-'}     Р/С № {data.contractor?.ras || '-'}    БИК {data.contractor?.bik || '-'}</Text>
-          <Text>К/С {data.contractor?.kor || '-'}     Банк {data.contractor?.bankName || '-'}</Text>
+          <Text>ИНН: {data.contractor?.inn || '-'}     Р/С №: {data.contractor?.ras || '-'}    БИК: {data.contractor?.bik || '-'}</Text>
+          <Text>К/С: {data.contractor?.kor || '-'}     Банк: {data.contractor?.bankName || '-'}</Text>
         </View>
 
         <View style={styles.section}>
@@ -42,7 +42,7 @@ const InvoiceTemplatePDF = ({data}) => {
           <Text>БИК: {data.client?.bik || '-'}</Text>
           <Text>Сч. №: {data.client?.rs || '-'}</Text>
           <Text>Юр. адрес: {data.client?.address || '-'}</Text>
-          <Text>ИНН {data.client?.inn}   ОКПО {data.client?.okpo}    ОГРНИП {data.client?.ogrn}</Text>
+          <Text>ИНН: {data.client?.inn}   ОКПО: {data.client?.okpo}    ОГРНИП: {data.client?.ogrn || '-'}</Text>
         </View>
 
         <View style={styles.table}>

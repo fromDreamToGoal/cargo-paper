@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { PDFViewer } from '@react-pdf/renderer';
-import InvoiceTemplatePDF from './InvoiceTemplatePDF';
+import InvoiceTemplatePDF from '../templates/InvoiceTemplatePDF';
 
 const InvoicePreviewPage = () => {
   const location = useLocation();

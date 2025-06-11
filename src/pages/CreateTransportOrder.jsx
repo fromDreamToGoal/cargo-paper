@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header'
 import Navigation from './Navigation'
 
@@ -22,6 +23,7 @@ const CreateTransportOrder = () => {
   const drivers = useSelector((state) => state.drivers.drivers);
   const companies = useSelector((state) => state.companies.companies);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,8 +37,17 @@ const CreateTransportOrder = () => {
     if (formData.unloadAddress) {
       dispatch({ type: 'addresses/addUnloadAddress', payload: formData.unloadAddress });
     }
-    // TODO: dispatch action to create document
-    console.log('Submitted:', formData);
+
+    const driver = drivers.find(d => d.id === formData.driver);
+    const client = companies.find(c => c.id === formData.client);
+
+    const documentData = {
+      ...formData,
+      driver,
+      client
+    };
+    console.log('Document Data:', documentData);
+    navigate('/transport-order-preview', { state: { data: documentData } });
   };
 
   return (

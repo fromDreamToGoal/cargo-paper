@@ -8,7 +8,7 @@ export default function Templates() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const templates = [
-    { name: 'Договор-заявка на заказ транспортного средства', version: '' },
+    { name: 'Договор-заявка на заказ транспортного средства', version: '11.06.2025', path: '/transport-order-preview' },
     { name: 'Акт сдачи-приемки', version: '' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка', version: '' },
@@ -92,6 +92,25 @@ export default function Templates() {
                               bankName: 'РНКБ ПАО',
                               kor: '30101810335100000607',
                               ras: '4080281044099000235',
+                            },
+                          },
+                        });
+                      } else if (tpl.path === '/transport-order-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              driver: { fullName: 'Герасименко Виктор Владимирович' },
+                              client: { name: 'ООО Ромашка' },
+                              issueDate: '2025-06-05',
+                              loadDate: '2025-06-06',
+                              loadAddress: 'г. Красноперекопск, ул. Менделеева, д. 1',
+                              unloadDate: '2025-06-07',
+                              unloadAddress: 'г. Санкт-Петербург, ул. Образцовая, д. 2',
+                              cargoType: 'Песок',
+                              packaging: 'Мешки по 50 кг',
+                              paymentType: 'Наличный расчет',
+                              paymentTerms: 'Оплата при получении груза',
+                              price: 15000,
                             },
                           },
                         });
