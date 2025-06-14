@@ -19,6 +19,14 @@ const CreateTransportOrder = () => {
     packaging: '',
     paymentType: '',
     paymentTerms: '',
+    contactPerson: '',
+    consignee: '',
+    unloadContactPerson: '',
+    vehicleType: '',
+    vehicleCount: '',
+    placesCount: '',
+    loadType: '',
+    unloadType: '',
   });
   const drivers = useSelector((state) => state.drivers.drivers);
   const companies = useSelector((state) => state.companies.companies);
@@ -106,6 +114,16 @@ const CreateTransportOrder = () => {
           </label>
 
           <label className="flex flex-col">
+            Контактное лицо
+            <input name="contactPerson" value={formData.contactPerson} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
+            Грузополучатель
+            <input name="consignee" value={formData.consignee} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
             Дата выгрузки
             <input type="date" name="unloadDate" value={formData.unloadDate} onChange={handleChange} className="border p-2" />
           </label>
@@ -118,6 +136,47 @@ const CreateTransportOrder = () => {
                 <option key={index} value={addr} />
               ))}
             </datalist>
+          </label>
+
+          <label className="flex flex-col">
+            Контактное лицо при выгрузке
+            <input name="unloadContactPerson" value={formData.unloadContactPerson} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
+            Тип транспортного средства
+            <input name="vehicleType" value={formData.vehicleType} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
+            Количество ТС
+            <input name="vehicleCount" value={formData.vehicleCount} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
+            Количество мест
+            <input name="placesCount" value={formData.placesCount} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
+            Вид загрузки
+            <select name="loadType" value={formData.loadType} onChange={handleChange} className="border p-2">
+              <option value="Задняя">Задняя</option>
+              <option value="Боковая">Боковая</option>
+              <option value="Верхняя">Верхняя</option>
+              <option value="Комбинированная">Комбинированная</option>
+              <option value="Без упаковки">Без упаковки</option>
+            </select>
+          </label>
+
+          <label className="flex flex-col">
+            Вид выгрузки
+            <select name="unloadType" value={formData.unloadType} onChange={handleChange} className="border p-2">
+              <option value="Задняя">Задняя</option>
+              <option value="Боковая">Боковая</option>
+              <option value="Верхняя">Верхняя</option>
+              <option value="Самосвал">Самосвал</option>
+            </select>
           </label>
 
           <label className="flex flex-col">
@@ -138,7 +197,6 @@ const CreateTransportOrder = () => {
           <label className="flex flex-col">
             Форма оплаты
             <select name="paymentType" value={formData.paymentType} onChange={handleChange} className="border p-2">
-              <option value="">Выбрать</option>
               <option value="наличный">Наличный</option>
               <option value="безнал">Безнал</option>
             </select>
