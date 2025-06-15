@@ -41,6 +41,9 @@ export default function EditDriver() {
             <tbody>
               {[
                 ['ФИО', 'fullName'],
+                ['Паспорт', 'passport'],
+                ['Дата выдачи паспорта', 'passportDate'],
+                ['Кем выдан паспорт', 'passportIssued'],
                 ['ИНН', 'inn'],
                 ['ОГРНИП', 'ogrnip'],
                 ['Адрес регистрации', 'registrationAddress'],

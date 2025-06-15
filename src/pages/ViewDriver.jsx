@@ -39,6 +39,9 @@ export default function ViewDriver() {
           <tbody>
             {[
               ['ФИО', driver.fullName],
+              ['Паспорт номер', driver.passport],
+              ['Дата выдачи паспорта', driver.passportDate],
+              ['Кем выдан паспорт', driver.passportIssued],
               ['ИНН', driver.inn],
               ['ОГРНИП', driver.ogrnip],
               ['Адрес регистрации', driver.registrationAddress],

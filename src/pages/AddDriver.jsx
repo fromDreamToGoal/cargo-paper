@@ -13,6 +13,9 @@ export default function AddDriver() {
 
   const [formData, setFormData] = useState({
     fullName: '',
+    passport: '',
+    passportDate: '',
+    passportIssued: '',
     inn: '',
     ogrnip: '',
     registrationAddress: '',
@@ -57,6 +60,9 @@ export default function AddDriver() {
       >
         {[
           ['ФИО', 'fullName'],
+          ['Номер пасспорта', 'passport'],
+          ['Дата выдачи паспорта', 'passportDate'],
+          ['Кем выдан паспорт', 'passportIssued'],
           ['ИНН', 'inn'],
           ['ОГРНИП', 'ogrnip'],
           ['Адрес регистрации', 'registrationAddress'],
