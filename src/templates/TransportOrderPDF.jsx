@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     row: { flexDirection: 'row', marginBottom: 4 },
     label: { width: '40%', fontWeight: 'bold' },
     value: { width: '60%' },
+    header: { fontSize: 12, marginBottom: 10, textAlign: 'center', fontWeight: 'bold' },
     title: { textAlign: 'center', fontSize: 14, marginBottom: 10, fontWeight: 'bold' },
     data: { fontSize: 10, marginBottom: 5, textAlign: 'right' },
     table: { borderWidth: 1, borderColor: '#000' },
@@ -26,6 +27,7 @@ const TransportOrderPDF = ({ data }) => (
         <Page size="A4" style={styles.page}>
             <Text style={styles.title}>ДОГОВОР - ЗАЯВКА НА ЗАКАЗ ТРАНСПОРТНОГО СРЕДСТВА</Text>
             <Text style={styles.data}>{data.issueDate}</Text>
+            <Text style={styles.header}>Приём заявок с 9.00 до 17.30. Все пункты обязательны для заполнення!</Text>
 
             <View style={styles.table}>
                 <View style={styles.tableRow}>
@@ -79,60 +81,32 @@ const TransportOrderPDF = ({ data }) => (
                 </View>
                 <View style={styles.tableRow}>
                     <Text style={styles.tableCol}>Вид загрузки:</Text>
-                    <Text style={[styles.tableCol, {flex: 3}]}>{data.loadType || '-'}</Text>
+                    <Text style={styles.tableCol}>{data.loadType || '-'}</Text>
                     <Text style={styles.tableCol}>Вид выгрузки:</Text>
-                    <Text style={[styles.tableColLast, {flex: 3}]}>{data.unloadType || '-'}</Text>
+                    <Text style={styles.tableColLast}>{data.unloadType || '-'}</Text>
+                </View>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableCol}>Дата и время подачи транспортного средства:</Text>
+                    <Text style={styles.tableColLast}>{data.loadDate || '-'}</Text>
+                </View>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableCol}>Дата и время выгрузки:</Text>
+                    <Text style={styles.tableColLast}>{data.unloadDate || '-'}</Text>
+                </View>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableCol}>Особые отметки/дополнительная информация:</Text>
+                    <Text style={styles.tableColLast}>{data.specialNotes || '-'}</Text>
+                </View>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableCol}>Стоимость перевозки:</Text>
+                    <Text style={styles.tableColLast}>{data.price ? `${data.price} рублей 00 копеек без НДС.` : '-'}</Text>
+                </View>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableCol}>Форма оплаты:</Text>
+                    <Text style={styles.tableColLast}>{ data.paymentType + '   ' + data.paymentTerms || '-'}</Text>
                 </View>
 
 
-
-
-                <View style={styles.section}>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Исполнитель (водитель):</Text>
-                        <Text style={styles.value}>ИП {data.driver?.fullName}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Клиент:</Text>
-                        <Text style={styles.value}>{data.client?.name}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Дата загрузки:</Text>
-                        <Text style={styles.value}>{data.loadDate}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Адрес загрузки:</Text>
-                        <Text style={styles.value}>{data.loadAddress}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Дата выгрузки:</Text>
-                        <Text style={styles.value}>{data.unloadDate}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Адрес выгрузки:</Text>
-                        <Text style={styles.value}>{data.unloadAddress}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Характер груза:</Text>
-                        <Text style={styles.value}>{data.cargoType}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Упаковка:</Text>
-                        <Text style={styles.value}>{data.packaging}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Форма оплаты:</Text>
-                        <Text style={styles.value}>{data.paymentType}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Условия оплаты:</Text>
-                        <Text style={styles.value}>{data.paymentTerms}</Text>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Стоимость:</Text>
-                        <Text style={styles.value}>{data.price} руб.</Text>
-                    </View>
-                </View>
             </View>
 
             <Text style={{ marginTop: 20 }}>Подпись клиента: ______________________</Text>

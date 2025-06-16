@@ -79,7 +79,7 @@ export default function ViewDriver() {
         className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
         onClick={() => navigate('/driver-card-preview', { state: { driver } })}
       >
-        Создать карту клиента
+        Карточка клиента
       </button>
         <button
           className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"

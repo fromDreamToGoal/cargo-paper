@@ -12,7 +12,7 @@ export default function Templates() {
     { name: 'Акт сдачи-приемки', version: '' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка', version: '' },
-    { name: 'Карта клиента', version: '8.06.2025', path: '/driver-card-preview' },
+    { name: 'Карточка клиента', version: '8.06.2025', path: '/driver-card-preview' },
   ]
 
   return (
@@ -110,6 +110,8 @@ export default function Templates() {
                               unloadDate: '2025-06-07',
                               unloadAddress: 'г. Санкт-Петербург, ул. Образцовая, д. 2',
                               unloadContactPerson: 'Сидоров Сидор Сидорович',
+                              unloadType: 'Cамосвал',
+                              specialNotes: 'Подача ТС за 2 часа до загрузки',
                               vehicleType: 'Грузовой автомобиль',
                               vehicleCount: 1,
                               placesCount: '10 пд.',

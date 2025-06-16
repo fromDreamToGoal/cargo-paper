@@ -27,6 +27,7 @@ const CreateTransportOrder = () => {
     placesCount: '',
     loadType: '',
     unloadType: '',
+    specialNotes: '',
   });
   const drivers = useSelector((state) => state.drivers.drivers);
   const companies = useSelector((state) => state.companies.companies);
@@ -180,8 +181,13 @@ const CreateTransportOrder = () => {
           </label>
 
           <label className="flex flex-col">
+            Особые отметки/дополнительная информация
+            <input name="specialNotes" value={formData.specialNotes} onChange={handleChange} className="border p-2" />
+          </label>
+
+          <label className="flex flex-col">
             Цена
-            <input name="price" value={formData.price} onChange={handleChange} className="border p-2" />
+            <input type="number" name="price" value={formData.price} onChange={handleChange} className="border p-2" />
           </label>
 
           <label className="flex flex-col">
