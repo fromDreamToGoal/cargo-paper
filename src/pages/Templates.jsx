@@ -99,7 +99,14 @@ export default function Templates() {
                         navigate(tpl.path, {
                           state: {
                             data: {
-                              driver: { fullName: 'Герасименко Виктор Владимирович' },
+                              driver: { fullName: 'Герасименко Виктор Владимирович',
+                                passportDate: '2015-06-05',
+                                passport: '1234 567890',
+                                passportIssued: 'УФМС России по Республике Крым',
+                                car: 'ГАЗель',
+                                carNumber: 'КР1234',
+                                trailerNumber: 'КР1234',
+                               },
                               client: { name: 'ООО Ромашка' },
                               issueDate: '2025-06-05',
                               loadDate: '2025-06-06',
