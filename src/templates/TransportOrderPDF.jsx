@@ -1,6 +1,16 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 
+const formatDateReadable = (dateStr) => {
+    if (!dateStr) return '';
+    const months = [
+        'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+        'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+    const [year, month, day] = dateStr.split('-');
+    return `${parseInt(day, 10)} ${months[parseInt(month, 10) - 1]} ${year}г.`;
+};
+
 Font.register({
     family: 'Roboto',
     src: './src/assets/fonts/Roboto.ttf',
@@ -20,14 +30,14 @@ const styles = StyleSheet.create({
     tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center' },
     tableCol: { flex: 1, borderRightWidth: 1, borderColor: '#000', padding: 4 },
     tableColLast: { flex: 1, borderColor: '#000', padding: 4 },
-    conditionsOfTransportation: { borderColor: '#000', margin: 5, fontSize: 8, textAlign: 'justify' },
+    conditionsOfTransportation: { borderColor: '#000', margin: 5, fontSize: 8, textAlign: 'justify' }
 });
 
 const TransportOrderPDF = ({ data }) => (
     <Document>
         <Page size="A4" style={styles.page}>
             <Text style={styles.title}>ДОГОВОР - ЗАЯВКА НА ЗАКАЗ ТРАНСПОРТНОГО СРЕДСТВА</Text>
-            <Text style={styles.data}>{data.issueDate}</Text>
+            <Text style={styles.data}>{formatDateReadable(data.issueDate)}</Text>
             <Text style={styles.header}>Приём заявок с 9.00 до 17.30. Все пункты обязательны для заполнення!</Text>
 
             <View style={styles.table}>
@@ -120,10 +130,10 @@ const TransportOrderPDF = ({ data }) => (
                 </View>
                 <View style={styles.tableRow}>
                     <Text style={styles.conditionsOfTransportation}>Условия перевозки:
-                        {'\n'}- Исполнитель принимает на сеюбя полную материальную ответственность за сохранность всего количества перевозимиго груза от поста загрузки до пункта разгрузки.
+                        {'\n'}- Исполнитель принимает на себя полную материальную ответственность за сохранность всего количества перевозимиго груза от поста загрузки до пункта разгрузки.
                         {'\n'}- В случае задержки в предоставлении транспортного средства под погрузку в указанный в заявке срок возместить заказчику все документально подтвержденные убытки, вызванные нарушением перевозчиком своих обязательств по настоящей заявке, а также обязуется выплатить заказчику штраф в размере 10% от стоимости перевозки.
                         {'\n'}- Отказ от загрузки менее чем за 24 часа оплачивается в размере 10% от стоимости перевозки.
-                        {'\n'}- За простой автомобиля под погрузкой/разгрузкойпо вине Заказчика, последний обязуется уплатить Исполнителю неустойку(штраф) в размере 1000(одна тысяча) рублей за каждые полные сутки простоя, наступающие с 0-00 часов после согласования даты разгрузки.
+                        {'\n'}- За простой автомобиля под погрузкой/разгрузкой по вине Заказчика, последний обязуется уплатить Исполнителю неустойку(штраф) в размере 1000(одна тысяча) рублей за каждые полные сутки простоя, наступающие с 0-00 часов после согласования даты разгрузки.
                         {'\n'}- Грузоотправитель обязан передать водителю надлежащие оформленные документы для перевозки груза.
                         {'\n'}- Подписанные оригиналы документов(Договор-Заявку, ТТН, Акт сверки выполненых работ, Счет на оплату) Исполнитель обязуется отправить на почтовый адрес заказчика не позднее 3(трех) дней после даты разгрузки.
                         {'\n'}Данная заявка подтверждает факт заключения договора перевозки груза.
@@ -131,11 +141,44 @@ const TransportOrderPDF = ({ data }) => (
                         {'\n'}С тарифами и условиями на доставку грузов ознакомлен (а) и согласен (а).
                     </Text>
                 </View>
-
+                <View style={styles.tableRow}>
+                    <Text style={[styles.tableCol, {textAlign: 'left'}]}>Заказчик: {data.client?.name || '-'}
+                        {'\n'}Юр. и факт. адрес: {data.client?.address || '-'}
+                        {'\n'}ИНН: {data.client?.inn || '-'} КПП: {data.client?.kpp || '-'}
+                        {'\n'}Р/с: {data.client?.rs || '-'}
+                        {'\n'}К/с: {data.client?.ks || '-'} 
+                        {'\n'}Банк: {data.client?.bankName || '-'}
+                        {'\n'}БИК: {data.client?.bik || '-'}
+                        {'\n'}Телефон: {data.client?.directorPhone || '-'}
+                        {'\n'}Электронная почта: {data.client?.email || '-'}
+                        {'\n'}Генеральный директор: {data.client?.director || '-'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        Подпись Заказчика: ________________________
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                    </Text>
+                    <Text style={[styles.tableColLast, {textAlign: 'left'}]}>Исполнитель: ИП {data.driver?.fullName || '-'} 
+                        {'\n'}Адрес регистрации: {data.driver?.registrationAddress || '-'}
+                        {'\n'}ИНН: {data.driver?.inn || '-'}
+                        {'\n'}Р/с: {data.driver?.ras || '-'}
+                        {'\n'}БИК: {data.driver?.bik || '-'}
+                        {'\n'}Банк: {data.driver?.bankName || '-'}
+                        {'\n'}К/с: {data.driver?.kor || '-'}
+                        {'\n'}Телефон: {data.driver?.phone || '-'}
+                        {'\n'}Электронная почта: {data.driver?.email || '-'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        Подпись Исполнителя: ________________________
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                    </Text>
+                </View>
             </View>
-
-            <Text style={{ marginTop: 20 }}>Подпись клиента: ______________________</Text>
-            <Text style={{ marginTop: 8 }}>Подпись исполнителя: __________________</Text>
         </Page>
     </Document>
 );

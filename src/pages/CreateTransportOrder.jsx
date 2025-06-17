@@ -162,6 +162,7 @@ const CreateTransportOrder = () => {
           <label className="flex flex-col">
             Вид загрузки
             <select name="loadType" value={formData.loadType} onChange={handleChange} className="border p-2">
+              <option value="">Выбрать вид загрузки</option>
               <option value="Задняя">Задняя</option>
               <option value="Боковая">Боковая</option>
               <option value="Верхняя">Верхняя</option>
@@ -173,6 +174,7 @@ const CreateTransportOrder = () => {
           <label className="flex flex-col">
             Вид выгрузки
             <select name="unloadType" value={formData.unloadType} onChange={handleChange} className="border p-2">
+              <option value="">Выбрать вид выгрузки</option>
               <option value="Задняя">Задняя</option>
               <option value="Боковая">Боковая</option>
               <option value="Верхняя">Верхняя</option>
@@ -203,6 +205,7 @@ const CreateTransportOrder = () => {
           <label className="flex flex-col">
             Форма оплаты
             <select name="paymentType" value={formData.paymentType} onChange={handleChange} className="border p-2">
+              <option value="">Выбрать форму оплаты</option>
               <option value="наличный">Наличный</option>
               <option value="безнал">Безнал</option>
             </select>
