@@ -85,12 +85,12 @@ const CreateAcceptanceAct = () => {
                     </label>
                     
                     <label className='flex flex-col'>
-                        Цена
+                        Цена за килограм
                         <input name="price" type='number' value={formData.price} onChange={handleChange} className="border p-2" />
                     </label>
                     
                     <label className='flex flex-col'>
-                        Количество
+                        Количество тонн 
                         <input name="quantity" type='number' value={formData.quantity} onChange={handleChange} className="border p-2" />
                     </label>
                     

@@ -24,8 +24,14 @@ const styles = StyleSheet.create({
   stamp: { marginTop: 20, textAlign: 'center', fontSize: 10, fontStyle: 'italic' },
 });
 
+function calcTotalPrice(pricePerKg, quantityTons) {
+  const quantityKg = Number(quantityTons) * 1000;
+  return Number(pricePerKg) * quantityKg;
+}
+
 
 const AcceptanceActPDF = ({ data }) => {
+ const totalPrice = calcTotalPrice(data.price, data.quantity);
     
   return (
     <Document>
@@ -58,20 +64,20 @@ const AcceptanceActPDF = ({ data }) => {
           {[1].map((_, i) => (
             <View key={i} style={styles.tableRow}>
               <Text style={[styles.tableCol, {flex: 3}]}>{data.service}</Text>
-              <Text style={styles.tableCol}>{data.price}</Text>
+              <Text style={styles.tableCol}>{data.price} руб/кг</Text>
               <Text style={styles.tableCol}>{data.quantity}</Text>
               <Text style={styles.tableCol}>{data.unit}</Text>
-              <Text style={styles.tableColLast}>{data.price}</Text>
+              <Text style={styles.tableColLast}>{totalPrice}</Text>
             </View>
           ))}
           <View style={styles.tableRow}>
             <Text style={[styles.tableCol, {flex: 6, textAlign: 'left', marginLeft: 5}]}>Итого</Text>
-            <Text style={styles.tableColLast}>{data.price}</Text>
+            <Text style={styles.tableColLast}>{totalPrice}</Text>
           </View>
         </View>
 
         <View style={styles.footer}>
-          <Text>Всего оказано услуг на сумму: {priceToWords(data.price)} без НДС</Text>
+          <Text>Всего оказано услуг на сумму: {priceToWords(totalPrice)} без НДС</Text>
           <Text> </Text>
           <Text>Вышеперечисленные услуги выполнены полностью и в срок. Заказчик претензий по обьему, качеству и срокам оказания услуг не имеет</Text>
           
