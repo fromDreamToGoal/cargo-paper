@@ -17,6 +17,7 @@ import CreateInvoiceForPayment from './pages/CreateInvoiceForPayment'
 import DriverCardPreview from './pages/DriverCardPreview'
 import TransportOrderPreview from './pages/TransportOrderPreview'
 import CreateAcceptanceAct from './pages/CreateAcceptanceAct'
+import AcceptanceActPreview from './pages/AcceptanceActPreview'
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/driver-card-preview" element={<DriverCardPreview />} />
         <Route path="/transport-order-preview" element={<TransportOrderPreview />} />
         <Route path="/create-acceptance-act" element={<CreateAcceptanceAct />} />
+        <Route path="/acceptance-act-preview" element={<AcceptanceActPreview />} />
       </Routes>
     </Router>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { Font } from '@react-pdf/renderer';
 import { priceToWords } from '../utils/priceToWords';
+import { formatDateReadable } from '../utils/formatDateReadable.js';
 
 Font.register({
   family: 'Roboto',
@@ -28,7 +29,7 @@ const InvoiceTemplatePDF = ({data}) => {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <Text style={styles.header}>Счёт на оплату № {data.invoiceNumber} от {data.invoiceDate}</Text>
+        <Text style={styles.header}>Счёт на оплату № {data.invoiceNumber} от {formatDateReadable(data.invoiceDate)}</Text>
 
         <View style={styles.section}>
           <Text>Исполнитель: {data.contractor?.fullName}</Text>

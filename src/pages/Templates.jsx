@@ -9,7 +9,7 @@ export default function Templates() {
 
   const templates = [
     { name: 'Договор-заявка на заказ транспортного средства', version: '11.06.2025', path: '/transport-order-preview' },
-    { name: 'Акт сдачи-приемки', version: '' },
+    { name: 'Акт сдачи-приемки', version: '19.06.2025', path: '/acceptance-act-preview' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка', version: '' },
     { name: 'Карточка клиента', version: '8.06.2025', path: '/driver-card-preview' },
@@ -46,7 +46,7 @@ export default function Templates() {
                           state: {
                             data: {
                               invoiceNumber: '123',
-                              invoiceDate: '2025-06-05',
+                              invoiceDate: '2025-02-05',
                               service: 'Транспортные услуги',
                               unit: 'тонна',
                               quantity: 12,
@@ -76,7 +76,40 @@ export default function Templates() {
                             },
                           },
                         });
-                      } else if (tpl.path === '/driver-card-preview') {
+                      } else if (tpl.path === '/acceptance-act-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              actNumber: '001',
+                              actDate: '2025-01-05',
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
+                                registrationAddress: '296000, г. Красноперекопск, ул. Менделеева, д. 27, кв. 3',
+                                inn: '910600165196',
+                                ras: '4080281044099000235',
+                                bik: '043510607',
+                                kor: '30101810335100000607',
+                                bankName: 'РНКБ ПАО',
+                              },
+                              client: {
+                                name: 'ООО Ромашка',
+                                inn: '7701234567',
+                                address: 'г. Москва, ул. Примерная, д. 1',
+                                rs: '4080281044099000234',
+                                bik: '044525987',
+                                bankName: 'АО КлиентБанк',
+                              },
+                              service: 'Транспортные услуги',
+                              serviceDate: '2025-06-05',
+                              priceInWords: 'Пятнадцать тысяч рублей 00 копеек',
+                              price: 15000,
+                              routeStart: 'г. Красноперекопск, ул. Менделеева, д. 1',
+                              routeEnd: 'г. Санкт-Петербург, ул. Образцовая, д. 2',
+                            },
+                          },
+                        });
+                      } 
+                      else if (tpl.path === '/driver-card-preview') {
                         navigate(tpl.path, {
                           state: {
                             driver: {
@@ -100,7 +133,7 @@ export default function Templates() {
                           state: {
                             data: {
                               driver: { fullName: 'Герасименко Виктор Владимирович',
-                                passportDate: '2015-06-05',
+                                passportDate: '2015-10-05',
                                 registrationAddress: '296000, Красноперекопск, Первушина 6А кв.33',
                                 passport: '1234 567890',
                                 passportIssued: 'УФМС России по Республике Крым',
@@ -127,7 +160,7 @@ export default function Templates() {
                                 phone: '+7 495 123-45-67',
                                 email: 'Gerasimenko@list.ru',
                                },
-                              issueDate: '2025-06-05',
+                              issueDate: '2025-04-05',
                               loadDate: '2025-06-06',
                               loadAddress: 'г. Красноперекопск, ул. Менделеева, д. 1',
                               loadType: 'Комбинированная',

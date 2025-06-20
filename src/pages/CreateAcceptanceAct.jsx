@@ -16,9 +16,6 @@ const CreateAcceptanceAct = () => {
         driverId: '',
         clientId: '',
         service: 'транспортные услуги',
-        serviceDate: '',
-        routeStart: '',
-        routeEnd: '',
         price: '',
         quantity: '',
         unit: 'тонна',
@@ -85,21 +82,6 @@ const CreateAcceptanceAct = () => {
                     <label className='flex flex-col'>
                         Наименование услуги
                         <input name="service" value={formData.service} onChange={handleChange} className="border p-2" />
-                    </label>
-
-                    <label className='flex flex-col'>
-                        Дата оказания услуги
-                        <input name="serviceDate" value={formData.serviceDate} onChange={handleChange} type="date" className="border p-2" />
-                    </label>
-
-                    <label className='flex flex-col'>
-                        Начальная точка маршрута
-                        <input name="routeStart" value={formData.routeStart} onChange={handleChange} className="border p-2" />
-                    </label>
-
-                    <label className='flex flex-col'>
-                        Конечная точка маршрута
-                        <input name="routeEnd" value={formData.routeEnd} onChange={handleChange}  className="border p-2" />
                     </label>
                     
                     <label className='flex flex-col'>
