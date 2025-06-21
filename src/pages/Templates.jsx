@@ -11,7 +11,7 @@ export default function Templates() {
     { name: 'Договор-заявка на заказ транспортного средства', version: '11.06.2025', path: '/transport-order-preview' },
     { name: 'Акт сдачи-приемки', version: '19.06.2025', path: '/acceptance-act-preview' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
-    { name: 'Заявка', version: '' },
+    { name: 'Заявка', version: '21.06.2025', path: '/transport-request-preview' },
     { name: 'Карточка клиента', version: '8.06.2025', path: '/driver-card-preview' },
   ]
 
@@ -183,6 +183,35 @@ export default function Templates() {
                               price: 15000,
                             },
                           },
+                        });
+                      } else if (tpl.path === '/transport-request-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              requestNumber: '01/ТР',
+                              requestDate: '2025-06-18',
+                              contractNumber: '42/Д',
+                              contractDate: '2025-01-01',
+                              route: 'г. Симферополь – г. Москва',
+                              loadDate: '2025-06-20',
+                              loadAddress: 'г. Симферополь, ул. Промышленная, д. 10',
+                              unloadDate: '2025-06-22',
+                              unloadAddress: 'г. Москва, ул. Примерная, д. 5',
+                              cargo: 'Отруби пшеничные',
+                              weight: '30900',
+                              loadingType: 'верхняя погрузка',
+                              truckInfo: 'МАН, М510СХ82, прицеп АС3790 82',
+                              rate: '2900',
+                              currency: 'руб/т',
+                              total: '89610',
+                              totalWords: 'Восемьдесят девять тысяч шестьсот десять',
+                              terms: 'Простой 1000₽/сут, отказ от загрузки менее чем за 24ч — штраф 10%',
+                              loadContact: 'Иванов И.И., +7 999 111-11-11',
+                              unloadContact: 'Петров П.П., +7 999 222-22-22',
+                              client: { name: 'ООО Тест' },
+                              driver: { fullName: 'Кательницкий А.Л.' }
+                            }
+                          }
                         });
                       } else {
                         navigate(`${tpl.path || '/main'}`);

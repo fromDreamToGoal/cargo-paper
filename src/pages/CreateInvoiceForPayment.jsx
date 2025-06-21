@@ -87,7 +87,7 @@ const CreateInvoiceForPayment = () => {
             <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} className="w-full border rounded px-3 py-2" />
           </div>
           <div>
-            <label className="block font-semibold mb-1">Цена</label>
+            <label className="block font-semibold mb-1">Сумма</label>
             <input type="number" name="price" value={formData.price} onChange={handleChange} className="w-full border rounded px-3 py-2" />
           </div>
         </form>
