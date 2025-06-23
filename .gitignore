@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+dist/
+release/
+*.dmg
+*.zip
+*.blockmap
+*.asar
