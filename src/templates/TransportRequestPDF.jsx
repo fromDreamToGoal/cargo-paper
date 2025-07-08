@@ -16,53 +16,76 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', marginBottom: 4 },
   label: { width: '40%', fontWeight: 'bold' },
   value: { width: '60%' },
-  footer: { marginTop: 20 }
+  footer: { marginTop: 20 },
+  table: { borderWidth: 1, borderColor: '#000', marginBottom: 20 },
+  tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center' },
+  tableCol: { flex: 1, borderRightWidth: 1, borderColor: '#000', padding: 4 },
+  tableColLast: { flex: 1, borderColor: '#000', padding: 4 },
 });
 
 const TransportRequestPDF = ({ data }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Text style={styles.title}>ЗАЯВКА НА ЗАКАЗ ТРАНСПОРТНОГО СРЕДСТВА</Text>
+      <View style={[styles.section, { textAlign: 'right' }]}>
+        <Text>Приложение Nº {data.appNumber || '----'}</Text>
+        <Text>К Договору оказания транспортных услуг</Text>
+        <Text>№ {data.contractNumber || '___'} от {data.contractDate || '___'}</Text>
+      </View>
 
-      <View style={styles.section}>
-        <Text>Заявка № {data.requestNumber || '___'} от {data.requestDate || '___'}</Text>
-        <Text>Приложение к договору № {data.contractNumber || '___'} от {data.contractDate || '___'}</Text>
+      <Text style={styles.title}>ЗАЯВКА</Text>
+
+      <View style={styles.table}>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Маршрут перевозки</Text>
+          <Text style={styles.tableCol}>Пункт загрузки</Text>
+          <Text style={styles.tableColLast}>Конечный пункт выгрузки</Text>
+        </View>
+        
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}></Text>
+          <Text style={styles.tableCol}>{data.loadAddress || '___'}</Text>
+          <Text style={styles.tableColLast}>{data.unloadAddress || '___'}</Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Дата загрузки</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>c {data.loadDate || '___'}</Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Тариф на перевозку</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>{data.rate || '___'} {'\n'}*Расчет стоимости перевозки осуществяется по весу (объему) груза, выгруженному в месте доставки (грузополучателю).  </Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Транспортное средство</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>{data.vehicle || '___'}</Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Требования к автомобилю</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>{data.driver?.car || '___'} {data.driver?.carNumber || '____'} прицеп {data.driver?.trailerNumber || '___'}</Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Наименование груза</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>{data.cargo || '___'} </Text>
+        </View>
+
+        <View style={styles.tableRow}>
+          <Text style={styles.tableCol}>Объем, тонн</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>{data.weight || '___'} </Text>
+        </View>
       </View>
 
       <View style={styles.section}>
-        <Text style={{ fontWeight: 'bold' }}>1. Данные перевозки</Text>
-        <Text>Маршрут: {data.route || '___'}</Text>
-        <Text>Дата загрузки: {data.loadDate || '___'}</Text>
-        <Text>Адрес загрузки: {data.loadAddress || '___'}</Text>
-        <Text>Дата выгрузки: {data.unloadDate || '___'}</Text>
-        <Text>Адрес выгрузки: {data.unloadAddress || '___'}</Text>
-        <Text>Груз: {data.cargo || '___'} ({data.weight || '___'} кг)</Text>
-        <Text>Погрузка: {data.loadingType || '___'}</Text>
-        <Text>ТС: {data.truckInfo || '___'}</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={{ fontWeight: 'bold' }}>2. Условия</Text>
-        <Text>Тариф: {data.rate || '___'} {data.currency || 'руб.'}</Text>
-        <Text>Стоимость: {data.total || '___'} ({data.totalWords || '___'})</Text>
-        <Text>Доп. условия: {data.terms || '___'}</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={{ fontWeight: 'bold' }}>3. Контакты</Text>
-        <Text>Контакт при погрузке: {data.loadContact || '___'}</Text>
-        <Text>Контакт при выгрузке: {data.unloadContact || '___'}</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={{ fontWeight: 'bold' }}>4. Стороны</Text>
-        <Text>Заказчик: {data.client?.name || '___'}</Text>
-        <Text>Перевозчик: ИП {data.driver?.fullName || '___'}</Text>
-      </View>
-
-      <View style={styles.footer}>
-        <Text>Подпись заказчика: ____________________</Text>
-        <Text>Подпись перевозчика: __________________</Text>
+        <Text style={styles.row}>Заявка согласована. Разногласия отсутствуют</Text>
+        <Text style={styles.row}>От ЗАКАЗЧИКА</Text>
+        <View style={styles.row}>
+          <Text style={styles.label}>_______________________/</Text>
+          <Text style={styles.value}>{data.client?.name || '___'}</Text>
+        </View>
       </View>
     </Page>
   </Document>

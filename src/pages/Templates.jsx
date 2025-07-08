@@ -198,8 +198,9 @@ export default function Templates() {
                               unloadDate: '2025-06-22',
                               unloadAddress: 'г. Москва, ул. Примерная, д. 5',
                               cargo: 'Отруби пшеничные',
-                              weight: '30900',
+                              weight: '35',
                               loadingType: 'верхняя погрузка',
+                              vehicle: 'Грузовой автомобиль',
                               truckInfo: 'МАН, М510СХ82, прицеп АС3790 82',
                               rate: '2900',
                               currency: 'руб/т',
@@ -209,7 +210,12 @@ export default function Templates() {
                               loadContact: 'Иванов И.И., +7 999 111-11-11',
                               unloadContact: 'Петров П.П., +7 999 222-22-22',
                               client: { name: 'ООО Тест' },
-                              driver: { fullName: 'Кательницкий А.Л.' }
+                              driver: {
+                                fullName: 'Кательницкий А.Л.',
+                                car: 'ГАЗель',
+                                carNumber: 'КР1234',
+                                trailerNumber: 'HI45321',
+                              }
                             }
                           }
                         });
