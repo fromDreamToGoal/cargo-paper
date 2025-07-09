@@ -24,9 +24,9 @@ export default function CreateDocument() {
       route: '/create-invoice'
     },
     {
-      title: 'Заявка',
+      title: 'Заявка (лбразец Флагман)',
       img: 'src/assets/templates/template-4.jpeg',
-      route: '/create-request'
+      route: '/create-transport-request'
     }
   ]
 
