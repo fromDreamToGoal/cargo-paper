@@ -188,6 +188,7 @@ export default function Templates() {
                         navigate(tpl.path, {
                           state: {
                             data: {
+                              appNumber: '1',
                               requestNumber: '01/ТР',
                               requestDate: '2025-06-18',
                               contractNumber: '42/Д',
@@ -209,9 +210,12 @@ export default function Templates() {
                               terms: 'Простой 1000₽/сут, отказ от загрузки менее чем за 24ч — штраф 10%',
                               loadContact: 'Иванов И.И., +7 999 111-11-11',
                               unloadContact: 'Петров П.П., +7 999 222-22-22',
-                              client: { name: 'ООО Тест' },
+                              client: { 
+                                name: 'ООО Тест',
+                                director: 'Сидоров Сидор Сидорович', 
+                              },
                               driver: {
-                                fullName: 'Кательницкий А.Л.',
+                                fullName: 'Кательницкий Александр Сергеевич',
                                 car: 'ГАЗель',
                                 carNumber: 'КР1234',
                                 trailerNumber: 'HI45321',

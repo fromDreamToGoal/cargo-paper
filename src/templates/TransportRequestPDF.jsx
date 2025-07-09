@@ -3,6 +3,8 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { Font } from '@react-pdf/renderer';
+import { formatDateReadable } from '../utils/formatDateReadable.js';
+import { formatToInitials } from '../utils/formatToInitials.js';
 
 Font.register({
   family: 'Roboto',
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
   page: { padding: 40, fontSize: 10, fontFamily: 'Roboto' },
   title: { fontSize: 14, textAlign: 'center', marginBottom: 10 },
   section: { marginBottom: 8 },
-  row: { flexDirection: 'row', marginBottom: 4 },
+  row: { flexDirection: 'row', marginBottom: 30 },
   label: { width: '40%', fontWeight: 'bold' },
   value: { width: '60%' },
   footer: { marginTop: 20 },
@@ -29,7 +31,7 @@ const TransportRequestPDF = ({ data }) => (
       <View style={[styles.section, { textAlign: 'right' }]}>
         <Text>Приложение Nº {data.appNumber || '----'}</Text>
         <Text>К Договору оказания транспортных услуг</Text>
-        <Text>№ {data.contractNumber || '___'} от {data.contractDate || '___'}</Text>
+        <Text>№ {data.contractNumber || '___'} от {formatDateReadable(data.contractDate) || '___'}</Text>
       </View>
 
       <Text style={styles.title}>ЗАЯВКА</Text>
@@ -50,7 +52,7 @@ const TransportRequestPDF = ({ data }) => (
 
         <View style={styles.tableRow}>
           <Text style={styles.tableCol}>Дата загрузки</Text>
-          <Text style={[styles.tableColLast, {flex: 2.055}]}>c {data.loadDate || '___'}</Text>
+          <Text style={[styles.tableColLast, {flex: 2.055}]}>c {formatDateReadable(data.loadDate) || '___'}</Text>
         </View>
 
         <View style={styles.tableRow}>
@@ -84,7 +86,12 @@ const TransportRequestPDF = ({ data }) => (
         <Text style={styles.row}>От ЗАКАЗЧИКА</Text>
         <View style={styles.row}>
           <Text style={styles.label}>_______________________/</Text>
-          <Text style={styles.value}>{data.client?.name || '___'}</Text>
+          <Text style={styles.value}>{formatToInitials(data.client?.director) || '___'} Генеральный директор {data.client?.name || '____'}</Text>
+        </View>
+        <Text style={styles.row}>От ПЕРЕВОЗЧИКА</Text>
+        <View style={styles.row}>
+          <Text style={styles.label}>_______________________/</Text>
+          <Text style={styles.value}>{formatToInitials(data.driver?.fullName) || '___'} </Text>
         </View>
       </View>
     </Page>
