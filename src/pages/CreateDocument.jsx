@@ -6,54 +6,65 @@ import Navigation from './Navigation'
 export default function CreateDocument() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [selectedRoute, setSelectedRoute] = useState('')
 
   const documents = [
     {
       title: 'Договор-заявка на заказ т/с',
-      img: 'src/assets/templates/template-1.jpeg',
       route: '/create-transport-order'
     },
     {
       title: 'Акт сдачи-приемки',
-      img: 'src/assets/templates/template-2.jpeg',
       route: '/create-acceptance-act'
     },
     {
       title: 'Счёт на оплату',
-      img: 'src/assets/templates/template-3.jpeg',
       route: '/create-invoice'
     },
     {
-      title: 'Заявка (лбразец Флагман)',
-      img: 'src/assets/templates/template-4.jpeg',
+      title: 'Заявка (образец Флагман)',
       route: '/create-transport-request'
     }
   ]
 
+  const handleCreate = () => {
+    if (selectedRoute) {
+      navigate(selectedRoute)
+    }
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between  bg-[#F5F5F5]">
+    <div className="min-h-screen flex flex-col items-center bg-[#F5F5F5]">
       <Header onMenuClick={() => setMenuOpen(true)} />
       <Navigation open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-        <div className="max-w-7xl mx-auto px-4 py-8">
-            <h2 className="text-center text-2xl font-semibold italic mt-4 mb-15">
-            Создать новый документ
-            </h2>
+      <div className="max-w-7xl mx-auto mt-10 px-4 py-8 w-full">
+        <h2 className="text-center text-2xl font-semibold italic mt-4 mb-6">
+          Создать новый документ
+        </h2>
 
-            <div className="flex justify-center flex-wrap gap-10 px-4">
+        <div className="flex flex-col items-center gap-4">
+          <select
+            className="border border-gray-300 rounded px-4 py-2 w-64"
+            value={selectedRoute}
+            onChange={(e) => setSelectedRoute(e.target.value)}
+          >
+            <option value="" disabled>Выберите документ</option>
             {documents.map((doc, index) => (
-            <div
-               key={index}
-               className="w-[180px] flex flex-col items-center cursor-pointer hover:opacity-80"
-                onClick={() => navigate(doc.route)}
-              >
-               <div className="w-[180px] h-[250px] bg-gray-200 shadow-md flex items-center justify-center">
-                 <img src={doc.img} alt={doc.title} className="max-h-full max-w-full object-contain" />
-               </div>
-             <p className="mt-2 text-sm text-center">{doc.title}</p>
-             </div>
+              <option key={index} value={doc.route}>
+                {doc.title}
+              </option>
             ))}
-         </div>
+          </select>
+
+          <button
+            className="bg-blue-600 text-white px-6 py-2 rounded disabled:opacity-50"
+            onClick={handleCreate}
+            disabled={!selectedRoute}
+          >
+            Создать
+          </button>
+        </div>
       </div>
     </div>
   )
