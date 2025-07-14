@@ -8,11 +8,12 @@ export default function Templates() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const templates = [
+    { name: 'Карточка клиента', version: '8.06.2025', path: '/driver-card-preview' },
     { name: 'Договор-заявка на заказ транспортного средства', version: '11.06.2025', path: '/transport-order-preview' },
     { name: 'Акт сдачи-приемки', version: '19.06.2025', path: '/acceptance-act-preview' },
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка (образец Флагман)', version: '21.06.2025', path: '/transport-request-preview' },
-    { name: 'Карточка клиента', version: '8.06.2025', path: '/driver-card-preview' },
+    { name: 'Заявка 1', version: '11.07.2025', path: '/transport-request-1-preview' },
   ]
 
   return (
@@ -208,6 +209,43 @@ export default function Templates() {
                                 name: 'ООО Тест',
                                 director: 'Сидоров Сидор Сидорович', 
                               }
+                            }
+                          }
+                        });
+                      } else if (tpl.path === '/transport-request-1-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
+                                car: 'ГАЗель',
+                                carNumber: 'КР1234',
+                                trailerNumber: 'КР1234',
+                                passport: '45 12 123',
+                                passportIssued: 'УФМС России по РК',
+                                registrationAddress: 'г. Красноперекопск, ул. Менделеева, д. 27, кв. 3',
+                                phone: '+7 978 8088890',
+                              },
+                              client: {
+                                name: 'ООО Тест',
+                                director: 'Петров Петр Петрович',
+                              },
+                              appNumber: 'TR-2025-01',
+                              appDate: '2025-07-11',
+                              route: 'Симферополь — Москва',
+                              loadDate: '2025-07-12',
+                              loadAddress: 'г. Симферополь, ул. Промышленная, д. 10',
+                              loadCompany: 'ООО СимферТранс',
+                              cargoDescription: 'Отруби пшеничные, 35 тонн',
+                              loadingType: 'Задняя',
+                              loadContact: 'Иванов Иван Иванович, +7 978 1111111',
+                              unloadDate: '2025-07-14',
+                              unloadAddress: 'г. Москва, ул. Примерная, д. 5',
+                              unloadContact: 'Петров Петр Петрович, +7 495 2222222',
+                              additionalTerms: 'Погрузка строго по времени, простой не более 2 часов.',
+                              price: '29000',
+                              waitingNorm: '2 часа',
+                              clientName: 'ООО Тест',
                             }
                           }
                         });

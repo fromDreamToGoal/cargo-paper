@@ -20,6 +20,7 @@ import CreateAcceptanceAct from './pages/CreateAcceptanceAct'
 import AcceptanceActPreview from './pages/AcceptanceActPreview'
 import TransportRequestPreview from './pages/TransportRequestPreview'
 import CreateTransportRequest from './pages/CreateTransportRequest'
+import TransportRequest1Preview from './pages/TransportRequest1Preview'
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route path="/acceptance-act-preview" element={<AcceptanceActPreview />} />
         <Route path="/transport-request-preview" element={<TransportRequestPreview />} />
         <Route path="/create-transport-request" element={<CreateTransportRequest />} />
+        <Route path="/transport-request-1-preview" element={<TransportRequest1Preview />} />
       </Routes>
     </Router>
   );
