@@ -245,7 +245,6 @@ export default function Templates() {
                               additionalTerms: 'Погрузка строго по времени, простой не более 2 часов.',
                               price: '29000',
                               waitingNorm: '2 часа',
-                              clientName: 'ООО Тест',
                             }
                           }
                         });

@@ -24,6 +24,10 @@ export default function CreateDocument() {
     {
       title: 'Заявка (образец Флагман)',
       route: '/create-transport-request'
+    },
+    {
+      title: 'Заявка (Образец 1)',
+      route: '/create-transport-request-1'
     }
   ]
 
