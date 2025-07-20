@@ -116,7 +116,7 @@ const TransportRequest1PDF = ({ data }) => (
 
                 <View style={styles.tableRow}>
                     <Text style={styles.tableCol}>Паспортные данные водителя</Text>
-                    <Text style={styles.tableColLast}>Пасспорт {data.driver?.passport || '___'} выдан {data.driver?.passportIssued || '____'} {data.driver?.registrationAddress || '____'}</Text>
+                    <Text style={styles.tableColLast}>Пасспорт {data.driver?.passport || '___'} выдан {data.driver?.passportIssued || '____'}</Text>
                 </View>
 
                 <View style={styles.tableRow}>

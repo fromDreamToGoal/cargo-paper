@@ -14,6 +14,7 @@ export default function Templates() {
     { name: 'Счет на оплату', version: '1.06.2025', path: '/invoice-preview' },
     { name: 'Заявка (образец Флагман)', version: '21.06.2025', path: '/transport-request-preview' },
     { name: 'Заявка 1', version: '11.07.2025', path: '/transport-request-1-preview' },
+    { name: 'Заявка 2', version: '16.07.2025', path: '/transport-request-2-preview' },
   ]
 
   return (
@@ -111,7 +112,7 @@ export default function Templates() {
                             },
                           },
                         });
-                      } 
+                      }
                       else if (tpl.path === '/driver-card-preview') {
                         navigate(tpl.path, {
                           state: {
@@ -135,7 +136,8 @@ export default function Templates() {
                         navigate(tpl.path, {
                           state: {
                             data: {
-                              driver: { fullName: 'Герасименко Виктор Владимирович',
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
                                 passportDate: '2015-10-05',
                                 registrationAddress: '296000, Красноперекопск, Первушина 6А кв.33',
                                 passport: '1234 567890',
@@ -150,8 +152,9 @@ export default function Templates() {
                                 ks: '7723982191664829',
                                 phone: '+3809991230186',
                                 email: 'registr@gmail.com'
-                               },
-                              client: { name: 'ООО Ромашка',
+                              },
+                              client: {
+                                name: 'ООО Ромашка',
                                 inn: '7701234567',
                                 kpp: '770101001',
                                 address: 'г. Москва, ул. Примерная, д. 1',
@@ -162,7 +165,7 @@ export default function Templates() {
                                 director: 'Петров Петр Петрович',
                                 phone: '+7 495 123-45-67',
                                 email: 'Gerasimenko@list.ru',
-                               },
+                              },
                               issueDate: '2025-04-05',
                               loadDate: '2025-06-06',
                               loadAddress: 'г. Красноперекопск, ул. Менделеева, д. 1',
@@ -205,9 +208,9 @@ export default function Templates() {
                               },
                               cargo: 'Отруби пшеничные',
                               weight: '35 тонн',
-                              client: { 
+                              client: {
                                 name: 'ООО Тест',
-                                director: 'Сидоров Сидор Сидорович', 
+                                director: 'Сидоров Сидор Сидорович',
                               }
                             }
                           }
@@ -245,6 +248,46 @@ export default function Templates() {
                               additionalTerms: 'Погрузка строго по времени, простой не более 2 часов.',
                               price: '29000',
                               waitingNorm: '2 часа',
+                            }
+                          }
+                        });
+                      } else if (tpl.path === '/transport-request-2-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
+                                inn: '910600165196',
+                                ogrnip: '314910234711922',
+                                rs: '1235697182578978',
+                                bik: '124786',
+                                bankName: 'Pekao Bank',
+                                ks: '7723982191664829',
+                                registrationAddress: 'г. Красноперекопск, ул. Менделеева, д. 27, кв. 3',
+                                phone: '+7 978 8088890',
+                              },
+                              client: {
+                                name: 'ООО Тест',
+                                director: 'Петров Петр Петрович',
+                                address: 'г. Симферополь, ул. Промышленная, д. 10',
+                                inn: '1234567890',
+                                ogrn: '1234567890123',
+                                rs: '4080281044099000234',
+                                bik: '044525987',
+                                bankName: 'АО КлиентБанк',
+                                ks: '30101810400000000225',
+                              },
+                              appNumber: '1',
+                              contractNumber: '350',
+                              contractDate: '2025-03-19',
+                              specificationNumber: '6',
+                              specificationPlace: 'г.Симферополь',
+                              specificationDate: '2025-05-22',
+                              appDate: '2025-07-11',
+                              route: 'Краснодарский край, Каневской р-н, ст.Стародеревянкоская, ул. Комсомольская 40, Р Крым, г. Симферополь, ул. Героев Сталинграда 8/3 .',
+                              vehicleCapacity: 'до 5 тонн',
+                              pricePerKg: '50 руб',
+                              totalPrice: '250000 руб',
                             }
                           }
                         });
