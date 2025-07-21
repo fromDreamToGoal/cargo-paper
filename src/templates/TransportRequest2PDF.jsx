@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     value: { width: '60%' },
     footer: { marginTop: 20 },
     table: { borderWidth: 1, borderColor: '#000', marginBottom: 20 },
-    tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center' },
+    tableRow: { flexDirection: 'row', borderBottomWidth: 1, borderColor: '#000', textAlign: 'center', },
     tableCol: { flex: 1, borderRightWidth: 1, borderColor: '#000', padding: 4 },
     tableColLast: { flex: 1, borderColor: '#000', padding: 4 },
 });
@@ -26,28 +26,28 @@ const styles = StyleSheet.create({
 const TransportRequest2PDF = ({ data }) => (
     <Document>
         <Page size="A4" style={styles.page}>
-            <Text style={styles.title}>ДОГОВОР № {data.contractNumber}</Text>
+            <View style={{ flex: 1, justifyContent: 'center' }}></View>
+                <Text style={styles.title}>ДОГОВОР № {data.contractNumber}</Text>
 
-            <View style={styles.section}>
-                <Text style={[styles.row, { textAlign: 'right' }]}>
-                    Приложение № {data.appNumber} к Договору
-                    {'\n'}перевозки грузов автомобильным
-                    {'\n'}транспортом № {data.contractNumber}
-                    {'\n'}от {formatDateReadable(data.contractDate)}
+                <View style={styles.section}>
+                    <Text style={[styles.row, { textAlign: 'right' }]}>
+                        Приложение № {data.appNumber} к Договору
+                        {'\n'}перевозки грузов автомобильным
+                        {'\n'}транспортом № {data.contractNumber}
+                        {'\n'}от {formatDateReadable(data.contractDate)}
+                    </Text>
+                </View>
+
+                <Text style={styles.title}>СПЕЦИФИКАЦИЯ № {data.specificationNumber || '___'}</Text>
+
+                <View style={[styles.section, { flexDirection: 'row', justifyContent: 'space-between' }]}>
+                    <Text style={styles.row}>{data.specificationPlace}</Text>
+                    <Text style={styles.row}>{formatDateReadable(data.specificationDate)}</Text>
+                </View>
+
+                <Text style={[styles.row, { textAlign: 'justify', textIndent: 20 }]}>
+                    Индивидуальный предприниматель {data.driver?.fullName || '___'}, именуемый в дальнейшем «Перевозчик», действующимй на основании Уведомления о государственной регистрации физичесского лица в качестве индивидуального предпринимателя, с одной стороны, и индивидуальный предприниматель {data.client?.director || '______'}, именуемый в дальшейшем «Заказчик» действующего на основании Уведомления о государственной регистрации физичесского лица с другой стороны, при совместном упоминании - «Стороны», а каждой отдельно - «Сторона», заключили настоящую Спецификацию к Договору перевозки грузов автомобильным транспортом, далее по тексту - «Договор», о нижеследующем:
                 </Text>
-            </View>
-
-            <Text style={styles.title}>СПЕЦИФИКАЦИЯ № {data.specificationNumber || '___'}</Text>
-
-            <View style={[styles.section, { flexDirection: 'row', justifyContent: 'space-between' }]}>
-                <Text style={styles.row}>{data.specificationPlace}</Text>
-                <Text style={styles.row}>{formatDateReadable(data.specificationDate)}</Text>
-            </View>
-
-
-            <Text style={[styles.row, { textAlign: 'justify', textIndent: 20 }]}>
-                Индивидуальный предприниматель {data.driver?.fullName || '___'}, именуемый в дальнейшем «Перевозчик», действующимй на основании Уведомления о государственной регистрации физичесского лица в качестве индивидуального предпринимателя, с одной стороны, и индивидуальный предприниматель {data.client?.director || '______'}, именуемый в дальшейшем «Заказчик» действующего на основании Уведомления о государственной регистрации физичесского лица с другой стороны, при совместном упоминании - «Стороны», а каждой отдельно - «Сторона», заключили настоящую Спецификацию к Договору перевозки грузов автомобильным транспортом, далее по тексту - «Договор», о нижеследующем:
-            </Text>
 
             <Text style={[styles.row, {fontStyle: 'italic', textIndent: 20}]}>
                 Руководствуясь п. 3.1 Договора, ст. 450, 452 ГК РФ, Стороны пришли к соглашению:
@@ -113,10 +113,10 @@ const TransportRequest2PDF = ({ data }) => (
                     {'\n'}{data.driver?.registrationAddress || '___'}
                     {'\n'}ИНН {data.driver?.inn || '___'}
                     {'\n'}ОГРНИП {data.driver?.ogrnip || '___'}
-                    {'\n'}р/с {data.driver?.rs || '___'}
+                    {'\n'}р/с {data.driver?.ras || '___'}
                     {'\n'}Банк: {data.driver?.bankName || '___'}
                     {'\n'}БИК {data.driver?.bik || '___'}
-                    {'\n'}К/С {data.driver?.ks || '___'}
+                    {'\n'}К/С {data.driver?.kor || '___'}
                     {'\n'}
                     {'\n'}
                     {'\n'}

@@ -23,7 +23,8 @@ import CreateTransportRequest from './pages/CreateTransportRequest'
 import TransportRequest1Preview from './pages/TransportRequest1Preview'
 import CreateTransportRequest1 from './pages/CreateTransportRequest1'
 import TransportRequest2Preview from './pages/TransportRequest2Preview'
-
+import TransportRequest2PDF from './templates/TransportRequest2PDF.jsx'
+import CreateTransportRequest2 from './pages/CreateTransportRequest2.jsx'
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/transport-request-1-preview" element={<TransportRequest1Preview />} />
         <Route path="/create-transport-request-1" element={<CreateTransportRequest1 />} />
         <Route path="/transport-request-2-preview" element={<TransportRequest2Preview />} />
+        <Route path="/create-transport-request-2" element={<CreateTransportRequest2 />} />
       </Routes>
     </Router>
   );
