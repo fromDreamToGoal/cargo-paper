@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { act, useState, version } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import Navigation from './Navigation'
@@ -15,6 +15,7 @@ export default function Templates() {
     { name: 'Заявка (образец Флагман)', version: '21.06.2025', path: '/transport-request-preview' },
     { name: 'Заявка 1', version: '11.07.2025', path: '/transport-request-1-preview' },
     { name: 'Заявка 2', version: '16.07.2025', path: '/transport-request-2-preview' },
+    { name: 'Акт (образец 1)', version: '22.07.2025', path: '/act-1-preview'}
   ]
 
   return (
@@ -288,6 +289,40 @@ export default function Templates() {
                               vehicleCapacity: 'до 5 тонн',
                               pricePerKg: '50 руб',
                               totalPrice: '250000 руб',
+                            }
+                          }
+                        });
+                      } else if (tpl.path === '/act-1-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
+                                registrationAddress: '296000, г. Красноперекопск, ул. Менделеева, д. 27, кв. 3',
+                                inn: '910600165196',
+                                ras: '4080281044099000235',
+                                bik: '043510607',
+                                kor: '30101810335100000607',
+                                bankName: 'РНКБ ПАО',
+                              },
+                              client: {
+                                name: 'ООО Ромашка',
+                                inn: '7701234567',
+                                kpp: '770101001',
+                                address: 'г. Москва, ул. Примерная, д. 1',
+                                rs: '4080281044099000234',
+                                bik: '044525987',
+                                bankName: 'АО КлиентБанк',
+                                ks: '30101810400000000225',
+                                director: 'Петров Петр Петрович',
+                              },
+                              actNumber: '1',
+                              actDate: '2025-01-19',
+                              service: 'Транспортные услуги',
+                              price: 15000,
+                              quantity: 20,
+                              unit: 'тонна',
+                              totalPrice: 300000,
                             }
                           }
                         });
