@@ -50,7 +50,7 @@ const Act1PDF = ({ data }) => {
                         <Text style={styles.tableColLast}>{totalPrice} руб.</Text>
                     </View>
                     <View style={styles.tableRow}>
-                        <Text style={[styles.tableCol, {flex: 4.23, textAlign: 'left', marginLeft: 15}]}>Сумма прописью: {priceToWords(data.totalPrice)}  Без НДС.</Text>
+                        <Text style={[styles.tableCol, {flex: 4.23, textAlign: 'left', marginLeft: 15}]}>Сумма прописью: {priceToWords(totalPrice)}  Без НДС.</Text>
                         <Text style={styles.tableCol}>{totalPrice} руб.</Text>
                     </View>
                 </View>

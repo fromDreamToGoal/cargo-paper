@@ -32,6 +32,10 @@ export default function CreateDocument() {
     {
       title: 'Заявка (Образец 2)',
       route: '/create-transport-request-2'
+    },
+    {
+      title: 'Акт (Образец 1)',
+      route: '/create-act1'
     }
   ]
 
