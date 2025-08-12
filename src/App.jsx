@@ -26,6 +26,7 @@ import TransportRequest2Preview from './pages/TransportRequest2Preview'
 import CreateTransportRequest2 from './pages/CreateTransportRequest2.jsx'
 import Act1Preview from './pages/Act1Preview.jsx'
 import CreateAct1 from './pages/CreateAct1.jsx'
+import ProxyPreview from './pages/ProxyPreview.jsx'
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route path="/create-transport-request-2" element={<CreateTransportRequest2 />} />
         <Route path="/act-1-preview" element={<Act1Preview />} />
         <Route path="/create-act1" element={<CreateAct1 />} />
+        <Route path="/proxy-preview" element={<ProxyPreview />} />
       </Routes>
     </Router>
   );

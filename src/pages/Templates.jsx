@@ -15,8 +15,9 @@ export default function Templates() {
     { name: 'Заявка (образец Флагман)', version: '21.06.2025', path: '/transport-request-preview' },
     { name: 'Заявка 1', version: '11.07.2025', path: '/transport-request-1-preview' },
     { name: 'Заявка 2', version: '16.07.2025', path: '/transport-request-2-preview' },
-    { name: 'Акт (образец 1)', version: '22.07.2025', path: '/act-1-preview'}
-  ]
+    { name: 'Акт (образец 1)', version: '22.07.2025', path: '/act-1-preview'},
+    { name: 'Доверенность', version: '4.08.2025', path: '/proxy-preview' }
+  ];
 
   return (
     <div className="min-h-screen bg-[#F5F5F5]">
@@ -326,6 +327,32 @@ export default function Templates() {
                             }
                           }
                         });
+                      } else if (tpl.path === '/proxy-preview') {
+                        navigate(tpl.path, {
+                          state: {
+                            data: {
+                              driver: {
+                                fullName: 'Герасименко Виктор Владимирович',
+                                inn: '910600165196',
+                                ogrnip: '314910234711922',
+                              },
+                              client: {
+                                name: 'ООО Ромашка',
+                                inn: '7701234567',
+                                kpp: '770101001',
+                                address: 'г. Москва, ул. Примерная, д. 1',
+                                rs: '4080281044099000234',
+                                bik: '044525987',
+                                bankName: 'АО КлиентБанк',
+                                ks: '30101810400000000225',
+                                director: 'Петров Петр Петрович',
+                              },
+                              proxyNumber: '12345',
+                              issueDate: '2025-08-04',
+                              expiryDate: '2026-08-04',
+                            }
+                          }
+                        })
                       } else {
                         navigate(`${tpl.path || '/main'}`);
                       }
